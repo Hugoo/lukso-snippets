@@ -39,11 +39,9 @@ const main = async () => {
     let provider = new Web3.providers.HttpProvider(
         'https://rpc.l14.lukso.network',
     );
-    let myERC725 = new ERC725([LSP3Schema], erc725ContractAddress, provider);
+    let myERC725 = new ERC725(LSP3Schema, erc725ContractAddress, provider);
 
-    const profileData = await myERC725.fetchData(
-        'SupportedStandards:ERC725Account',
-    );
+    const profileData = await myERC725.fetchData('LSP3Profile');
 
     console.log(profileData);
 };
