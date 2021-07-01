@@ -1,8 +1,8 @@
-import ERC725 from 'erc725.js';
+import ERC725, { Erc725Schema } from 'erc725.js';
 import Web3 from 'web3';
 
 const main = async () => {
-    const LSP3Schema: any = [
+    const LSP3Schemas: Erc725Schema[] = [
         {
             name: 'SupportedStandards:ERC725Account',
             key: '0xeafec4d89fa9619884b6b89135626455000000000000000000000000afdeb5d6',
@@ -39,7 +39,7 @@ const main = async () => {
     let provider = new Web3.providers.HttpProvider(
         'https://rpc.l14.lukso.network',
     );
-    let myERC725 = new ERC725(LSP3Schema, erc725ContractAddress, provider);
+    let myERC725 = new ERC725(LSP3Schemas, erc725ContractAddress, provider);
 
     const profileData = await myERC725.fetchData('LSP3Profile');
 
